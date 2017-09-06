@@ -1,23 +1,24 @@
-# redux-injector
+# redux-reducers-injector
 Allows dynamically injecting reducers into a redux store at runtime.
+Compatible with HMR and SSR
 
 Typically when creating a redux data store all reducers are combined and then passed to the ```createStore``` function. However, this doesn't allow adding additional reducers later which can be lazy loaded or added by plugin modules. This module changes the creation of the redux store to pass in an object of reducer functions (recursively!) that are then dynamically combined. Adding a new reducer is then done with ```injectReducer``` at any time.
 
 ## Installation
-Install ```redux-injector``` via npm.
+Install ```redux-reducers-injector``` via npm.
 
 ```javascript
-npm install --save redux-injector
+npm install --save redux-reducers-injector
 ```
 
 Then with a module bundler like webpack that supports either CommonJS or ES2015 modules, use as you would anything else:
  
  ```javascript
  // using an ES6 transpiler, like babel
- import { createInjectStore } from 'redux-injector';
+ import { createInjectStore } from 'redux-reducers-injector';
  
  // not using an ES6 transpiler
- var createInjectStore = require('redux-injector').createInjectStore;
+ var createInjectStore = require('redux-reducers-injector').createInjectStore;
  ```
 
 
@@ -59,18 +60,34 @@ let store = createInjectStore(
 For any store created using redux-injector, simply use ```injectReducer``` to add a new reducer.
 
 ```javascript
-import { injectReducer } from 'redux-injector';
+import { injectReducer } from 'redux-reducers-injector';
 
 injectReducer('date.form', formReducerFunction);
 ```
 
 The injector uses lodash.set so any paths that are supported by it can be used and any missing objects will be created.
+You can pass an extra paramater `force` to true for forcing the reinjection of the reducer
+
+## Reloading a reducer
+For HMR purpose, it is possible to reload a reducer with ```reloadReducer```:
+```javascript
+import { reloadReducer } from 'redux-reducers-injector';
+
+if (module.hot) {
+        module.hot.accept('./reducer', () => {
+            const formReducerFunction = require('./reducer').default;
+            reloadReducer('date.form', formReducerFunction)
+            // same as:
+            // injectReducer('date.form', formReducerFunction, true);
+        });
+    }
+```
 
 ## Immutable.js
 Redux Injector by default uses ```combineReducers``` from redux. However, if you are using immutable.js for your states, you need to use  ```combineReducers``` from ```redux-immutable```. To do this, pass in an override at the end of the arguments with the ```combineReducers``` function.
 
 ```javascript
-import { createInjectStore } from 'redux-injector';
+import { createInjectStore } from 'redux-reducers-injector';
 import { combineReducers } from 'redux-immutable';
 
 let store = createInjectStore(
