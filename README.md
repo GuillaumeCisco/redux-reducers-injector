@@ -1,6 +1,8 @@
 # redux-reducers-injector
 Allows dynamically injecting reducers into a redux store at runtime.
-Compatible with HMR and SSR
+Compatible with HMR and SSR.
+
+Based on the work of randallknutson/redux-injector.
 
 Typically when creating a redux data store all reducers are combined and then passed to the ```createStore``` function. However, this doesn't allow adding additional reducers later which can be lazy loaded or added by plugin modules. This module changes the creation of the redux store to pass in an object of reducer functions (recursively!) that are then dynamically combined. Adding a new reducer is then done with ```injectReducer``` at any time.
 

@@ -1,7 +1,7 @@
 {
-  "name": "redux-injector",
+  "name": "redux-reducers-injector",
   "version": "0.1.0",
-  "description": "Allows dynamically injecting reducers into a redux store at runtime.",
+  "description": "Allows dynamically injecting reducers into a redux store at runtime. Suuport HMR and SSR.",
   "main": "lib/ReduxInjector.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,18 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/randallknutson/redux-injector.git"
+    "url": "git+https://github.com/GuillaumeCisco/redux-reducers-injector"
   },
   "keywords": [
     "redux",
     "react"
   ],
-  "author": "Randall Knutson <randall@knutson.io>",
+  "author": "Guillaume Cisco <guillaumecisco@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/randallknutson/redux-injector/issues"
+    "url": "https://github.com/GuillaumeCisco/redux-reducers-injector/issues"
   },
-  "homepage": "https://github.com/randallknutson/redux-injector#readme",
+  "homepage": "https://github.com/GuillaumeCisco/redux-reducers-injector#readme",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
