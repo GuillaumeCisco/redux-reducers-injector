@@ -50,7 +50,7 @@ If you do have combined reducers it is still possible to pass them to createInje
 Pass the uncombined reducer tree to ```createInjectStore``` along with any other arguments you would usually pass to ```createStore```. This wraps and passes the arguments and results to ```createStore```. 
 
 ```javascript
-import { createInjectStore } from 'redux-injector';
+import { createInjectStore } from 'redux-reducers-injector';
 
 let store = createInjectStore(
   reducersObject,
