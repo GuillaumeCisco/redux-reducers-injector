@@ -1,6 +1,6 @@
 {
   "name": "redux-reducers-injector",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Allows dynamically injecting reducers into a redux store at runtime. Suuport HMR and SSR.",
   "main": "lib/ReduxInjector.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "react"
   ],
   "author": "Guillaume Cisco <guillaumecisco@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/GuillaumeCisco/redux-reducers-injector/issues"
   },
