@@ -103,7 +103,7 @@ import {injectReducer} from 'redux-reducers-injector';
 
 const MyComponent = universal(import(`./my_component`), {
         onLoad: (module, info, props, context) => {
-            injectReducer(model, module.reducer, context.store);
+            injectReducer(model, module.reducer, false, context.store);
         },
     });
 ```

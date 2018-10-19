@@ -1,3 +1,6 @@
+0.2.1
+- Update README example with react-universal-component
+
 0.2.0
 - Add new parameter store, for using context store from the application. Fix ssr issues with simultaneous calls.
 
