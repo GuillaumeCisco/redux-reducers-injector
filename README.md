@@ -85,6 +85,31 @@ if (module.hot) {
     }
 ```
 
+## :warning: 
+
+If you use Server Side Rendering for your project, you will have a node server.
+The implementation of this project use a reference to the store in its scope.
+
+When you receive multiple calls simultaneously and you render your react application, this reference to the store can be overwritten leading to javsacript errors. 
+Typically, the injected reducers won't be found.
+
+Fortunately, you can pass your context store to the `reloadReducer` and `injectReducer` methods for solving this issue.
+
+Example, if you are using the excellent [react-universal-component](https://github.com/faceyspacey/react-universal-component) library, you just have to write:
+
+```javascript
+import universal from 'react-universal-component';
+import {injectReducer} from 'redux-reducers-injector';
+
+const MyComponent = universal(import(`./my_component`), {
+        onLoad: (module, info, props, context) => {
+            injectReducer(model, module.reducer, context.store);
+        },
+    });
+```
+
+You now have a bulletproof store injection :rocket:
+
 ## Immutable.js
 Redux Injector by default uses ```combineReducers``` from redux. However, if you are using immutable.js for your states, you need to use  ```combineReducers``` from ```redux-immutable```. To do this, pass in an override at the end of the arguments with the ```combineReducers``` function.
 

@@ -14,10 +14,10 @@ export function combineReducersRecurse(reducers) {
     // If this is an object of functions, combine reducers.
     if (typeof reducers === 'object') {
         let combinedReducers = {};
-        const keys = Object.keys(reducers)
+        const keys = Object.keys(reducers);
         for (let i = 0; i < keys.length; i++) {
-          const key = keys[i]
-          combinedReducers[key] = combineReducersRecurse(reducers[key])
+            const key = keys[i];
+            combinedReducers[key] = combineReducersRecurse(reducers[key])
         }
         return combine(combinedReducers);
     }
@@ -49,11 +49,12 @@ export function createInjectStore(initialReducers, ...args) {
     return store;
 }
 
-export function reloadReducer(key, reducer) {
+export function reloadReducer(key, reducer, store=store) {
     store.replaceReducer(combineReducersRecurse({...store.injectedReducers, [key]: reducer}));
 }
 
-export function injectReducer(key, reducer, force = false) {
+export function injectReducer(key, reducer, force = false, store=store) {
+
     // If already set, do nothing.
     if (!has(store.injectedReducers, key) || force) {
         set(store.injectedReducers, key, reducer);
