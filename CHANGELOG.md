@@ -1,3 +1,6 @@
+0.2.2
+- Fix README example with react-universal-component
+
 0.2.1
 - Update README example with react-universal-component
 
