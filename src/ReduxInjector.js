@@ -2,7 +2,7 @@ import {createStore, combineReducers} from 'redux';
 import set from 'lodash/set';
 import has from 'lodash/has';
 
-let store = {};
+let original_store = {};
 let combine = combineReducers;
 
 export function combineReducersRecurse(reducers) {
@@ -39,21 +39,21 @@ export function createInjectStore(initialReducers, ...args) {
         }
     }
 
-    store = createStore(
+    original_store = createStore(
         combineReducersRecurse(initialReducers),
         ...args
     );
 
-    store.injectedReducers = initialReducers;
+    original_store.injectedReducers = initialReducers;
 
-    return store;
+    return original_store;
 }
 
-export function reloadReducer(key, reducer, store=store) {
+export function reloadReducer(key, reducer, store = original_store) {
     store.replaceReducer(combineReducersRecurse({...store.injectedReducers, [key]: reducer}));
 }
 
-export function injectReducer(key, reducer, force = false, store=store) {
+export function injectReducer(key, reducer, force = false, store = original_store) {
 
     // If already set, do nothing.
     if (!has(store.injectedReducers, key) || force) {

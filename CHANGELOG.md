@@ -1,3 +1,6 @@
+0.2.3
+- Fix hoisting with babel transformation of default argument
+
 0.2.2
 - Fix README example with react-universal-component
 
