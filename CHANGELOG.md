@@ -1,3 +1,6 @@
+0.2.4
+- Update README for showing how to support react-redux@6.0.0
+
 0.2.3
 - Fix hoisting with babel transformation of default argument
 

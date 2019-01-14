@@ -17,7 +17,7 @@ export function combineReducersRecurse(reducers) {
         const keys = Object.keys(reducers);
         for (let i = 0; i < keys.length; i++) {
             const key = keys[i];
-            combinedReducers[key] = combineReducersRecurse(reducers[key])
+            combinedReducers[key] = combineReducersRecurse(reducers[key]);
         }
         return combine(combinedReducers);
     }
