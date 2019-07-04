@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel ./src --ignore=*.spec.js --out-dir ./lib --presets es2015,react,stage-2",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -32,6 +34,8 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "redux": "^4.0.1"
-  }
+    "redux": "^4.0.1",
+    "snyk": "^1.189.0"
+  },
+  "snyk": true
 }
