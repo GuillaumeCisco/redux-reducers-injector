@@ -34,7 +34,7 @@ export function createInjectStore(initialReducers, ...args) {
     if (typeof args[args.length - 1] === 'object') {
         const overrides = args.pop();
         // Allow overriding the combineReducers function such as with redux-immutable.
-        if (overrides.hasOwnProperty('combineReducers') && typeof overrides.combineReducers === 'function') {
+        if (Object.prototype.hasOwnProperty.call(overrides, 'combineReducers') && typeof overrides.combineReducers === 'function') {
             combine = overrides.combineReducers;
         }
     }

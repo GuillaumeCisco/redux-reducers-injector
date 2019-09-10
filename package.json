@@ -1,6 +1,6 @@
 {
   "name": "redux-reducers-injector",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Allows dynamically injecting reducers into a redux store at runtime. Support HMR and SSR.",
   "main": "lib/ReduxInjector.js",
   "scripts": {
@@ -36,7 +36,8 @@
     "@babel/plugin-syntax-import-meta": "7.0.0",
     "@babel/preset-env": "7.6.0",
     "@babel/preset-react": "7.0.0",
-    "eslint": "6.3.0"
+    "eslint": "6.3.0",
+    "eslint-plugin-react": "^7.14.3"
   },
   "dependencies": {
     "lodash": "4.17.15",

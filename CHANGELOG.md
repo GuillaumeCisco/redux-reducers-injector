@@ -1,3 +1,6 @@
+0.2.7
+- Add linting
+
 0.2.6
 - Fix presets
 
