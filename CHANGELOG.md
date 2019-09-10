@@ -1,3 +1,6 @@
+0.2.5
+- Update dependencies
+
 0.2.4
 - Update README for showing how to support react-redux@6.0.0
 
