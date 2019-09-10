@@ -1,11 +1,11 @@
 {
   "name": "redux-reducers-injector",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Allows dynamically injecting reducers into a redux store at runtime. Support HMR and SSR.",
   "main": "lib/ReduxInjector.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./src --ignore=*.spec.js --out-dir ./lib --presets es2015,react,stage-2",
+    "build": "babel ./src --ignore=*.spec.js --out-dir ./lib --presets @babel/preset-env,@babel/preset-react",
     "lint": "eslint src"
   },
   "repository": {
@@ -25,9 +25,17 @@
   "devDependencies": {
     "@babel/cli": "7.6.0",
     "@babel/core": "7.6.0",
-    "@babel/preset-es2015": "7.0.0-beta.53",
+    "@babel/plugin-proposal-class-properties": "7.0.0",
+    "@babel/plugin-proposal-decorators": "7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "7.0.0",
+    "@babel/plugin-proposal-function-sent": "7.0.0",
+    "@babel/plugin-proposal-json-strings": "7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "7.0.0",
+    "@babel/plugin-syntax-import-meta": "7.0.0",
+    "@babel/preset-env": "7.6.0",
     "@babel/preset-react": "7.0.0",
-    "@babel/preset-stage-2": "7.0.0",
     "eslint": "6.3.0"
   },
   "dependencies": {

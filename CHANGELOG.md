@@ -1,3 +1,6 @@
+0.2.6
+- Fix presets
+
 0.2.5
 - Update dependencies
 
