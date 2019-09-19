@@ -61,3 +61,20 @@ export function injectReducer(key, reducer, force = false, store = original_stor
         store.replaceReducer(combineReducersRecurse(store.injectedReducers));
     }
 }
+
+export function injectReducerBulk(reducers, force = false, store = original_store) {
+
+    let update = false;
+    reducers.forEach(x => {
+        // If already set, do nothing.
+        if (!has(store.injectedReducers, x.key) || force) {
+            set(store.injectedReducers, x.key, x.reducer);
+            update = true;
+        }
+    });
+
+    if (update) {
+        store.replaceReducer(combineReducersRecurse(store.injectedReducers));
+    }
+
+}

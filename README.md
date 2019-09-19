@@ -62,7 +62,7 @@ let store = createInjectStore(
 ); 
 ```
 
-## Injecting a new reducer.
+## Injecting a new reducer
 For any store created using react-reducers-injector, simply use ```injectReducer``` to add a new reducer.
 
 ```javascript
@@ -74,6 +74,19 @@ injectReducer('date.form', formReducerFunction);
 The injector uses lodash.set so any paths that are supported by it can be used and any missing object will be created.  
 You can pass an extra parameter `force` to true for forcing the reinjection of the reducer.  
 And a one last parameter `store` for defining a context store, useful in SSR environment for supporting concurrent call.
+
+## Injecting reducers in bulk
+
+You can add multiple reducers at once:
+```javascript
+import {injectReducerBulk} from 'redux-reducers-injector';
+
+const reducers = [
+    {key: 'date.form', reducer: formReducerFunction},
+    {key: 'foo.bar', reducer: BarReducerFunction},
+];
+injectReducerBulk(reducers);
+```
 
 ## Reloading a reducer
 For HMR purpose, it is possible to reload a reducer with ```reloadReducer```:
@@ -98,7 +111,7 @@ The implementation of this project use a reference to the store in its scope.
 When you receive multiple calls simultaneously (concurrent calls) and you render your react application, this reference to the store can be overwritten leading to javascript errors. 
 Typically, the injected reducers won't be found.
 
-Fortunately, you can pass your context store to the `reloadReducer` and `injectReducer` methods for solving this issue.
+Fortunately, you can pass your context store to the `reloadReducer`, `injectReducer` and `injectReducerBulk` methods for solving this issue.
 
 Example, if you are using the excellent [react-universal-component](https://github.com/faceyspacey/react-universal-component) library, you just have to write:
 

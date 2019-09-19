@@ -1,3 +1,6 @@
+0.3.0
+- Add new method injectReducerBulk
+
 0.2.7
 - Add linting
 
