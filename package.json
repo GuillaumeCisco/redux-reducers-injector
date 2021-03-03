@@ -1,6 +1,6 @@
 {
   "name": "redux-reducers-injector",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Allows dynamically injecting reducers into a redux store at runtime. Support HMR and SSR.",
   "main": "lib/ReduxInjector.js",
   "scripts": {
