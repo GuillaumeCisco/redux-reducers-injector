@@ -283,3 +283,22 @@ let store = createInjectStore(
   { combineReducers }
 ); 
 ```
+
+## TypeScript
+React Reducer Injector provides TypeScript definitions.
+Some of the types require `typescript@^4.1` in order to work properly.
+
+```typescript
+const rootReducerObject = { foo: { bar: (state: number, _action) => state } }
+const store = createInjectStore(rootReducerObject /* ... */)
+type AppState = StateFromDeepReducersMapObject<typeof rootReducerObject>
+
+// ... dynamically loaded module
+const moduleReducer = (state: string, _action) => state
+injectReducer('baz.quz', moduleReducer)
+type ModuleState = StateShapeFromReducerPath<'baz.quz', typeof moduleReducer>
+
+// ... with its selectors that are capable of accessing available state
+type AvailableState = AppState & ModuleState
+const getBarQuz = (state: AvailableState) => `${state.foo.bar} ${state.baz.quz}`
+```
