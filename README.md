@@ -128,7 +128,9 @@ const MyComponent = universal(import(`./my_component`), {
 
 You now have a bulletproof store injection :rocket:
 
-## React Redux >= 6.0.0
+## React Redux ^6.0.0
+
+> **NOTE** this issue was resolved in react-redux@^7
 
 From `react-redux@6.0.0`, there is a huge breaking change regarding the context store.
 After injecting the reducer, it will not be reflected in the `mapStateToProps` method of the `connect` method from redux.
