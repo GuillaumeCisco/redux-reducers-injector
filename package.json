@@ -45,5 +45,8 @@
   "dependencies": {
     "lodash": "4.17.23",
     "redux": "4.0.5"
+  },
+  "resolutions": {
+    "lodash": "4.17.23"
   }
 }
