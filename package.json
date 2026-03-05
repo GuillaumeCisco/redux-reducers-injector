@@ -5,7 +5,7 @@
   "main": "lib/ReduxInjector.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./src --ignore=*.spec.js --out-dir ./lib --presets @babel/preset-env,@babel/preset-react",
+    "build": "babel ./src --ignore \\\"**/*.spec.js\\\" --out-dir ./lib --presets @babel/preset-env,@babel/preset-react",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
