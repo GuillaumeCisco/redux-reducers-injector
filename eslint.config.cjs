@@ -3,6 +3,9 @@ const globals = require("globals");
 const reactPlugin = require("eslint-plugin-react");
 
 module.exports = [
+  {
+    ignores: ["lib/**", "node_modules/**", ".yarn/**"]
+  },
   js.configs.recommended,
   {
     files: ["**/*.{js,mjs,cjs,jsx}"],
@@ -10,7 +13,7 @@ module.exports = [
       react: reactPlugin
     },
     languageOptions: {
-      ecmaVersion: 2018,
+      ecmaVersion: "latest",
       sourceType: "module",
       parserOptions: {
         ecmaFeatures: {
@@ -19,11 +22,19 @@ module.exports = [
       },
       globals: {
         ...globals.browser,
-        ...globals.node,
-        Atomics: "readonly",
-        SharedArrayBuffer: "readonly"
+        ...globals.node
       }
     },
-    rules: {}
+    settings: {
+      react: {
+        version: "detect"
+      }
+    },
+    rules: {
+      "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      "no-console": "off",
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off"
+    }
   }
 ];
