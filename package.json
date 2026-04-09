@@ -43,10 +43,13 @@
     "globals": "17.4.0"
   },
   "dependencies": {
-    "lodash": "4.17.23",
+    "lodash": "4.18.1",
     "redux": "4.0.5"
   },
   "resolutions": {
-    "lodash": "4.17.23"
+    "flatted": "3.4.2",
+    "picomatch@^4.0.0": "4.0.4",
+    "picomatch@^2.0.0": "2.3.2",
+    "tar": "7.5.11"
   }
 }
