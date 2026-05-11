@@ -48,6 +48,7 @@
   },
   "resolutions": {
     "flatted": "3.4.2",
+    "ip-address": "10.1.1",
     "picomatch@^4.0.0": "4.0.4",
     "picomatch@^2.0.0": "2.3.2",
     "tar": "7.5.11"
